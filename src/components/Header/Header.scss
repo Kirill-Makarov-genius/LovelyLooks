@@ -1,0 +1,175 @@
+$size-of-tablet: 800px;
+$size-of-mobile: 450px;
+
+.header {
+  border-bottom: 1px solid transparent;
+  display: grid;
+  grid-template-areas: "logo nav buttons";
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 103px;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  max-width: 1366px;
+  background-color: inherit;
+  z-index: 1000;
+  transition: border-color 1s, background-color 1s;
+
+  @media screen and (max-width: $size-of-tablet) {
+    grid-template-areas:
+      "burger logo buttons"
+      "nav nav nav"
+      "contacts contacts contacts";
+  }
+
+  @media screen and (max-width: $size-of-mobile) {
+    grid-template-rows: 74px;
+  }
+
+  &_colored {
+    border-color: var(--color-of-border-nav);
+    background-color: var(--color-of-main-background);
+  }
+// LOGGOOOOOOOOOOOO
+  &__logo-link {
+    grid-area: logo;
+    text-decoration: none;
+    color: #122947;
+    font-family: var(--font-of-text);
+    // font-weight: 500;
+    display: flex;
+    justify-content: center;
+    margin-left: 12px;
+    justify-self: center;
+    outline: none;
+
+    @media screen and (max-width: $size-of-tablet) {
+      margin-left: 45px;
+    }
+    &:hover .header__logo{
+      background-size: 0 3px, 100% 3px;
+      
+    }
+    @media screen and (max-width: $size-of-mobile) {
+      margin-left: 32px;
+    }
+  }
+  &__logo {
+    background:
+    linear-gradient(
+      to right,
+      rgba(35, 35, 35, 0.741),
+      rgba(35, 35, 35, 0.649)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+  );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    padding: 10px 0;
+    background-repeat: no-repeat;
+    transition: background-size 500ms;
+    font-family: var(--font-of-text);
+    width: 100%;
+    height: 21px;
+    font-size: calc(0.65vw + 9px);
+    
+    @media screen and (max-width: $size-of-mobile) {
+      
+      text-align: center;
+      height: 15px;
+      font-size: calc(0.65vw + 17px);
+      display: none;
+    }
+  }
+  // КОНЕЦ LOGOOOOOOOO
+  &__burger-button {
+    display: none;
+
+    @media screen and (max-width: $size-of-tablet) {
+      display: block;
+      grid-area: burger;
+      height: 24px;
+      width: 18px;
+      padding: 0;
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+      margin-left: 45px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      margin-left: 15px;
+      height: 16px;
+    }
+  }
+  &__nav-area {
+    display: flex;
+    justify-content: end;
+    padding: 0 49px;
+    grid-area: nav;
+
+    @media screen and (max-width: $size-of-tablet) {
+      border-top: 1px solid var(--color-of-border-nav);
+      justify-content: start;
+      padding: 0 45px 20px;
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: visibility 1s, opacity 0.5s, max-height 1s;
+      align-items: start;
+      flex-direction: column;
+    }
+    @media screen and (max-width: $size-of-mobile) {
+      padding-left: 15px;
+    }
+    &_open {
+      opacity: 1;
+      visibility: visible;
+      max-height: 500px;
+      transition: visibility 1s, opacity 1s 0.3s, max-height 1s;
+    }
+  }
+  &__buttons-area {
+    display: flex;
+    gap: 29px;
+    grid-area: buttons;
+    padding-right: 99px;
+
+    @media screen and (max-width: $size-of-tablet) {
+      padding-right: 45px;
+    }
+
+    @media screen and (max-width: $size-of-mobile) {
+      padding-right: 14px;
+      gap: 14px;
+    }
+  }
+  &__button {
+    height: 21px;
+    width: 18px;
+    padding: 0;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    outline-offset: 4px;
+    border-radius: 50%;
+    transition: outline-color 0.3s ease, outline-offset 0.3s ease;
+    &:hover,
+    &:focus {
+      outline-color: var(--color-of-text);
+      outline-offset: 8px;
+    }
+  }
+  &__button-icon {
+    @media screen and (max-width: $size-of-mobile) {
+      height: 22px;
+      width: 14px;
+    }
+  }
+}
