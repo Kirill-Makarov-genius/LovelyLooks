@@ -1,4 +1,4 @@
-# Maroon
+# Lovely Looks
 
 Pet-проект. Самостоятельный проект. 
 
@@ -36,4 +36,4 @@ Pet-проект. Самостоятельный проект.
 * Перенести state-мендежмент на Redux Toolkit для закрепления соответствующих навыков
 
 
-[https://smolib.github.io/maroon/](https://smolib.github.io/maroon/)
+
